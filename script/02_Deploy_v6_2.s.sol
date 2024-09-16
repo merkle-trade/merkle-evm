@@ -41,14 +41,8 @@ contract DeployScript_Mainnet is DeployScript {
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
         swapBridge.initialize(lzTokenBridge, AUGUSTUS_V6);
         swapBridge.approveMax(usdc, lzTokenBridge);
-        swapBridge.approveMax(
-            IERC20(0xdAC17F958D2ee523a2206206994597C13D831ec7),
-            AUGUSTUS_V6
-        ); // USDT
-        swapBridge.approveMax(
-            IERC20(0x6B175474E89094C44Da98b954EedeAC495271d0F),
-            AUGUSTUS_V6
-        ); // DAI
+        swapBridge.approveMax(IERC20(0xdAC17F958D2ee523a2206206994597C13D831ec7), AUGUSTUS_V6); // USDT
+        swapBridge.approveMax(IERC20(0x6B175474E89094C44Da98b954EedeAC495271d0F), AUGUSTUS_V6); // DAI
         // swapBridge.approveMax(IERC20(0xc5f0f7b66764F6ec8C8Dff7BA683102295E16409), AUGUSTUS_V6); // FDUSD
         // swapBridge.approveMax(IERC20(0x4c9EDD5852cd905f086C759E8383e09bff1E68B3), AUGUSTUS_V6); // USDe (Ethena USD)
         vm.stopBroadcast();
@@ -70,10 +64,7 @@ contract DeployScript_Bsc is DeployScript {
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
         swapBridge.initialize(lzTokenBridge, AUGUSTUS_V6);
         swapBridge.approveMax(usdc, lzTokenBridge);
-        swapBridge.approveMax(
-            IERC20(0x55d398326f99059fF775485246999027B3197955),
-            AUGUSTUS_V6
-        ); // USDT
+        swapBridge.approveMax(IERC20(0x55d398326f99059fF775485246999027B3197955), AUGUSTUS_V6); // USDT
         vm.stopBroadcast();
 
         console.logAddress(address(swapBridge));
@@ -93,18 +84,9 @@ contract DeployScript_Polygon is DeployScript {
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
         swapBridge.initialize(lzTokenBridge, AUGUSTUS_V6);
         swapBridge.approveMax(usdc, lzTokenBridge);
-        swapBridge.approveMax(
-            IERC20(0xc2132D05D31c914a87C6611C10748AEb04B58e8F),
-            AUGUSTUS_V6
-        ); // USDT
-        swapBridge.approveMax(
-            IERC20(0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359),
-            AUGUSTUS_V6
-        ); // USDC
-        swapBridge.approveMax(
-            IERC20(0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063),
-            AUGUSTUS_V6
-        ); // DAI
+        swapBridge.approveMax(IERC20(0xc2132D05D31c914a87C6611C10748AEb04B58e8F), AUGUSTUS_V6); // USDT
+        swapBridge.approveMax(IERC20(0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359), AUGUSTUS_V6); // USDC
+        swapBridge.approveMax(IERC20(0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063), AUGUSTUS_V6); // DAI
         vm.stopBroadcast();
 
         console.logAddress(address(swapBridge));
@@ -124,18 +106,9 @@ contract DeployScript_Avalanche is DeployScript {
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
         swapBridge.initialize(lzTokenBridge, AUGUSTUS_V6);
         swapBridge.approveMax(usdc, lzTokenBridge);
-        swapBridge.approveMax(
-            IERC20(0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7),
-            AUGUSTUS_V6
-        ); // USDT
-        swapBridge.approveMax(
-            IERC20(0xc7198437980c041c805A1EDcbA50c1Ce5db95118),
-            AUGUSTUS_V6
-        ); // USDT.e
-        swapBridge.approveMax(
-            IERC20(0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664),
-            AUGUSTUS_V6
-        ); // USDC.e
+        swapBridge.approveMax(IERC20(0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7), AUGUSTUS_V6); // USDT
+        swapBridge.approveMax(IERC20(0xc7198437980c041c805A1EDcbA50c1Ce5db95118), AUGUSTUS_V6); // USDT.e
+        swapBridge.approveMax(IERC20(0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664), AUGUSTUS_V6); // USDC.e
         vm.stopBroadcast();
 
         console.logAddress(address(swapBridge));
@@ -155,22 +128,10 @@ contract DeployScript_Arbitrum is DeployScript {
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
         swapBridge.initialize(lzTokenBridge, AUGUSTUS_V6);
         swapBridge.approveMax(usdc, lzTokenBridge);
-        swapBridge.approveMax(
-            IERC20(0xaf88d065e77c8cC2239327C5EDb3A432268e5831),
-            AUGUSTUS_V6
-        ); // USDC
-        swapBridge.approveMax(
-            IERC20(0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9),
-            AUGUSTUS_V6
-        ); // USDT
-        swapBridge.approveMax(
-            IERC20(0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1),
-            AUGUSTUS_V6
-        ); // DAI
-        swapBridge.approveMax(
-            IERC20(0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A),
-            AUGUSTUS_V6
-        ); // MIM
+        swapBridge.approveMax(IERC20(0xaf88d065e77c8cC2239327C5EDb3A432268e5831), AUGUSTUS_V6); // USDC
+        swapBridge.approveMax(IERC20(0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9), AUGUSTUS_V6); // USDT
+        swapBridge.approveMax(IERC20(0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1), AUGUSTUS_V6); // DAI
+        swapBridge.approveMax(IERC20(0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A), AUGUSTUS_V6); // MIM
         vm.stopBroadcast();
 
         console.logAddress(address(swapBridge));
@@ -190,18 +151,9 @@ contract DeployScript_Optimism is DeployScript {
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
         swapBridge.initialize(lzTokenBridge, AUGUSTUS_V6);
         swapBridge.approveMax(usdc, lzTokenBridge);
-        swapBridge.approveMax(
-            IERC20(0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85),
-            AUGUSTUS_V6
-        ); // USDC
-        swapBridge.approveMax(
-            IERC20(0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1),
-            AUGUSTUS_V6
-        ); // DAI
-        swapBridge.approveMax(
-            IERC20(0x94b008aA00579c1307B0EF2c499aD98a8ce58e58),
-            AUGUSTUS_V6
-        ); // USDT
+        swapBridge.approveMax(IERC20(0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85), AUGUSTUS_V6); // USDC
+        swapBridge.approveMax(IERC20(0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1), AUGUSTUS_V6); // DAI
+        swapBridge.approveMax(IERC20(0x94b008aA00579c1307B0EF2c499aD98a8ce58e58), AUGUSTUS_V6); // USDT
         vm.stopBroadcast();
 
         console.logAddress(address(swapBridge));

@@ -90,7 +90,9 @@ contract SwapBridge is Ownable2Step, Pausable {
             SafeERC20.safeTransfer(_toToken, msg.sender, _toToken.balanceOf(address(this)) - toTokenOrgBalance);
         }
 
-        emit SwapAndSendToAptos(address(_fromToken), address(_toToken), _fromAmount, _minToAmount, toAmount, _aptosAddress);
+        emit SwapAndSendToAptos(
+            address(_fromToken), address(_toToken), _fromAmount, _minToAmount, toAmount, _aptosAddress
+        );
     }
 
     function sendToAptos(IERC20 _token, uint256 _amount, bytes32 _aptosAddress) external payable whenNotPaused {

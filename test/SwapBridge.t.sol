@@ -12,8 +12,7 @@ contract SwapBridgeTest is Test {
 
     address constant fromUser = 0x8558FE88F8439dDcd7453ccAd6671Dfd90657a32; // some rich guy with 8-digit USDT blance
     address constant lzTokenBridge = 0x50002CdFe7CCb0C41F519c6Eb0653158d11cd907;
-    address constant paraswapAugustusSwapper =
-        0x6A000F20005980200259B80c5102003040001068;
+    address constant paraswapAugustusSwapper = 0x6A000F20005980200259B80c5102003040001068;
 
     address deployer;
     SwapBridge swapBridge;
@@ -29,10 +28,7 @@ contract SwapBridgeTest is Test {
         swapBridge = new SwapBridge(deployer);
         swapBridge.initialize(lzTokenBridge, paraswapAugustusSwapper);
         vm.stopPrank();
-        assertEq(
-            address(swapBridge),
-            0x8Ad159a275AEE56fb2334DBb69036E9c7baCEe9b
-        );
+        assertEq(address(swapBridge), 0x8Ad159a275AEE56fb2334DBb69036E9c7baCEe9b);
 
         // fromUser
         assertGt(usdt.balanceOf(fromUser), 100_000_000_000);
@@ -51,15 +47,11 @@ contract SwapBridgeTest is Test {
     function test_SwapAndSendToAptos_ParaSwap() public {
         swapBridge.approveMax(usdc, lzTokenBridge);
         swapBridge.approveMax(usdt, paraswapAugustusSwapper);
-        (uint256 nativeFee, ) = swapBridge.quoteForSend();
+        (uint256 nativeFee,) = swapBridge.quoteForSend();
 
         startHoax(fromUser);
         uint256 prevBalance = address(fromUser).balance;
-        SafeERC20.safeIncreaseAllowance(
-            usdt,
-            address(swapBridge),
-            1_000_000_000
-        );
+        SafeERC20.safeIncreaseAllowance(usdt, address(swapBridge), 1_000_000_000);
         swapBridge.swapAndSendToAptos{value: nativeFee + 100_000}(
             usdt,
             1_000_000_000, // 1000 USDT
@@ -78,7 +70,7 @@ contract SwapBridgeTest is Test {
     function test_SwapAndSendToAptos_PreserveOrgBalance() public {
         swapBridge.approveMax(usdc, lzTokenBridge);
         swapBridge.approveMax(usdt, paraswapAugustusSwapper);
-        (uint256 nativeFee, ) = swapBridge.quoteForSend();
+        (uint256 nativeFee,) = swapBridge.quoteForSend();
 
         address usdcRich = 0x4B16c5dE96EB2117bBE5fd171E4d203624B014aa;
         hoax(usdcRich);
@@ -87,11 +79,7 @@ contract SwapBridgeTest is Test {
         startHoax(fromUser);
         SafeERC20.safeTransfer(usdt, address(swapBridge), 2e6); // fromToken org balance
         uint256 prevBalance = address(fromUser).balance;
-        SafeERC20.safeIncreaseAllowance(
-            usdt,
-            address(swapBridge),
-            1_000_000_000
-        );
+        SafeERC20.safeIncreaseAllowance(usdt, address(swapBridge), 1_000_000_000);
         swapBridge.swapAndSendToAptos{value: nativeFee + 100_000}(
             usdt,
             1_000_000_000, // 1000 USDT
@@ -110,14 +98,10 @@ contract SwapBridgeTest is Test {
     function test_SwapAndSendToAptos_Fail_ToAmount() public {
         swapBridge.approveMax(usdc, lzTokenBridge);
         swapBridge.approveMax(usdt, paraswapAugustusSwapper);
-        (uint256 nativeFee, ) = swapBridge.quoteForSend();
+        (uint256 nativeFee,) = swapBridge.quoteForSend();
 
         startHoax(fromUser);
-        SafeERC20.safeIncreaseAllowance(
-            usdt,
-            address(swapBridge),
-            1_000_000_000
-        );
+        SafeERC20.safeIncreaseAllowance(usdt, address(swapBridge), 1_000_000_000);
         vm.expectRevert(SwapBridge.InsufficientOutputAmount.selector);
         swapBridge.swapAndSendToAptos{value: nativeFee}(
             usdt,
@@ -131,15 +115,11 @@ contract SwapBridgeTest is Test {
 
     function test_SendToAptos() public {
         swapBridge.approveMax(usdt, lzTokenBridge);
-        (uint256 nativeFee, ) = swapBridge.quoteForSend();
+        (uint256 nativeFee,) = swapBridge.quoteForSend();
 
         startHoax(fromUser);
         uint256 prevBalance = address(fromUser).balance;
-        SafeERC20.safeIncreaseAllowance(
-            usdt,
-            address(swapBridge),
-            1_000_000_000
-        );
+        SafeERC20.safeIncreaseAllowance(usdt, address(swapBridge), 1_000_000_000);
         swapBridge.sendToAptos{value: nativeFee + 100_000}(
             usdt,
             1_000_000_000, // 1000 USDT
@@ -167,8 +147,7 @@ contract SwapBridgeTest_Bsc is Test {
 
     address constant fromUser = 0xD183F2BBF8b28d9fec8367cb06FE72B88778C86B; // some rich guy
     address constant lzTokenBridge = 0x2762409Baa1804D94D8c0bCFF8400B78Bf915D5B;
-    address constant paraswapAugustusSwapper =
-        0x6A000F20005980200259B80c5102003040001068;
+    address constant paraswapAugustusSwapper = 0x6A000F20005980200259B80c5102003040001068;
 
     address deployer;
     SwapBridge swapBridge;
@@ -182,10 +161,7 @@ contract SwapBridgeTest_Bsc is Test {
 
         startHoax(deployer);
         swapBridge = new SwapBridge(deployer);
-        assertEq(
-            address(swapBridge),
-            0x8Ad159a275AEE56fb2334DBb69036E9c7baCEe9b
-        );
+        assertEq(address(swapBridge), 0x8Ad159a275AEE56fb2334DBb69036E9c7baCEe9b);
         swapBridge.initialize(lzTokenBridge, paraswapAugustusSwapper);
 
         // fromUser
@@ -196,7 +172,7 @@ contract SwapBridgeTest_Bsc is Test {
     function test_SwapAndSendToAptos_ToToken_Leftover() public {
         swapBridge.approveMax(usdc, lzTokenBridge);
         swapBridge.approveMax(usdt, paraswapAugustusSwapper);
-        (uint256 nativeFee, ) = swapBridge.quoteForSend();
+        (uint256 nativeFee,) = swapBridge.quoteForSend();
 
         startHoax(fromUser);
         uint256 fromUserUsdcOrgBalance = usdc.balanceOf(fromUser);
