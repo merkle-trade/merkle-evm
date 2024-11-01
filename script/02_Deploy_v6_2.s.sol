@@ -78,7 +78,7 @@ contract DeployScript_Polygon is DeployScript {
 
     function run() public {
         address lzTokenBridge = 0x488863D609F3A673875a914fBeE7508a1DE45eC6;
-        IERC20 usdc = IERC20(0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174);
+        IERC20 usdc = IERC20(0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174); // USDC.e
 
         vm.startBroadcast();
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
@@ -122,7 +122,7 @@ contract DeployScript_Arbitrum is DeployScript {
 
     function run() public {
         address lzTokenBridge = 0x1BAcC2205312534375c8d1801C27D28370656cFf;
-        IERC20 usdc = IERC20(0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8);
+        IERC20 usdc = IERC20(0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8); // USDC.e
 
         vm.startBroadcast();
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);
@@ -145,7 +145,7 @@ contract DeployScript_Optimism is DeployScript {
 
     function run() public {
         address lzTokenBridge = 0x86Bb63148d17d445Ed5398ef26Aa05Bf76dD5b59;
-        IERC20 usdc = IERC20(0x7F5c764cBc14f9669B88837ca1490cCa17c31607);
+        IERC20 usdc = IERC20(0x7F5c764cBc14f9669B88837ca1490cCa17c31607); // USDC.e
 
         vm.startBroadcast();
         SwapBridge swapBridge = new SwapBridge{salt: SALT}(DEPLOYER);

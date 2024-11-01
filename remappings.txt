@@ -2,3 +2,4 @@ forge-std/=lib/forge-std/src/
 @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
 LayerZero-Aptos-Contract/=lib/LayerZero-Aptos-Contract/
 @layerzerolabs/solidity-examples/contracts/libraries/=lib/solidity-examples/contracts/lzApp/libs/
+solady=lib/solady/src/
